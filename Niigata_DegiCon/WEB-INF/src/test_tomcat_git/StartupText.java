@@ -12,7 +12,7 @@ public class StartupText extends TextWrite //player.txtを出力するクラス
 		text = ""; writetext = "";
 
 		int[] defSet = new int[3];
-		int[] hpSet = {-1,100,100};//hp
+		int[] hpSet = {-1,0,0};//満足度
 		int[] manaSet = {-1,1,1};//mana
 		int[] defDamage = {0,0,0};//発生したダメージ
 		line = new String[7];
