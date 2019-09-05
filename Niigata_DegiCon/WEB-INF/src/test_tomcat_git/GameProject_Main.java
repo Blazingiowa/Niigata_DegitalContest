@@ -10,10 +10,10 @@ public class GameProject_Main
 	//ルーム状況を入れるための配列
 	int[] player = new int[3];
 
-	int[][] p1_card = new int[3][8];//統合処理の時の、カード判定時に使う
-	int[][] p2_card = new int[3][8];//上に同じ
+	int[][] p1_card = new int[3][5];//統合処理の時の、カード判定時に使う
+	int[][] p2_card = new int[3][5];//上に同じ
 
-	int[] hp;//ｈｐの情報を格納するための配列
+	int[] hp;//ｈｐ（満足度）の情報を格納するための配列
 	int[] move_pt;//行動値の情報を格納するための配列
 
 	int[] p1_cardinfo;//DBから持ってきたカード情報を退避させるための配列(p1
@@ -29,10 +29,10 @@ public class GameProject_Main
 	boolean flag = false;
 
 	//クールタイムの情報を入れるための配列
-	int[][]CT = new int[2][20];
+	int[][]CT = new int[2][16];
 
 	//クールタイムの更新した情報をテキストに書き込む時に使う１次元配列
-	int[]CTwrite = new int[20];
+	int[]CTwrite = new int[16];
 
 	//DBクラスのインスタンス
 	DataBaseConnectRead DBC = new DataBaseConnectRead();

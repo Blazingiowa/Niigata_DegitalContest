@@ -65,147 +65,74 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 			}
 		}
 
-		//p2_cardの行を回すためのfor
+		//統合処理:計算
 		for (int i = 0; i < p2_card.length; i++)
 		{
-			//攻撃が通せるか判定するためのフラグリセット
-			flag = false;
-
-			//攻撃が通せるか判定するための変数リセット
-			count = 0;
-
-			//使ったカードがあるかどうか判定
-			if (p2_card[i][0] != -1)
+			//ｐ２が選んだお酒にｐ１が選んだおつまみがマッチしてるかどうか
+			if (i == 0)
 			{
-				//p2_cardの対応IDの列を回すためのfor
-				for (int j = 3; j < p2_card[0].length; j++)
+				for (int j = 3; j < p1_card[0].length; j++)
 				{
-					//対応IDがあるかどうかの判定
-					if (p2_card[i][j] != -1)
+					//マッチした場合
+					if (p2_card[i][0] == p1_card[1][j])
 					{
-						//p1_cardのIDの行を回すためのfor
-						for (int k = 0; k < p1_card.length; k++)
-						{
-							//p2_cardの使ったカードIDに対応しているIDがp1_cardにあるか判定
-							if (p2_card[i][j] == p1_card[k][0])
-							{
-								//ｐ２のカードが攻撃で、ｐ１の防御に防がれたとき
-								if (0 <= p2_card[i][0] && p2_card[i][0] < 12)
-								{
-									textmain[6][k] -= p2_card[i][2] / 2;//ｐ２が受けたダメージを計算して配列に入れる
-									flag = true;
-								}
-								//ｐ２のカードが防御で、ｐ１の攻撃を防いだとき
-								else
-								{
-									//修正場所
-									textmain[4][i] += p1_card[k][2] / 2;//ｐ２がリフレクトしたダメージを計算して配列に入れる
-								}
-							}
+						textmain[4][0] = (int) (p2_card[0][2] * 1.5);
+						textmain[6][1] = textmain[4][0];
+					}
 
-							//対応しているIDでなかった場合
-							else
-							{
-								//攻撃カードかどうかの判定
-								if (0 <= p2_card[i][0] && p2_card[i][0] < 12)
-								{
-									//カウントをプラスする
-									count++;
-
-									//カウントが３回溜まっていて、ｐ１の使ったカードに対応IDがなかった場合
-									if (count == 6 && flag == false)
-									{
-										textmain[4][i] += p2_card[i][2];//ｐ２が与えたダメージを配列に入れる
-										count = 0;//カウントリセット
-
-										System.out.println("ｐ２の攻撃が通ったよ！" + textmain[4][i] + "ダメージ");
-									}
-								}
-							}
-
-						}
+					//マッチしなかった場合
+					else
+					{
+						textmain[4][0] = p2_card[0][2];
+						textmain[6][1] = 0;
 					}
 				}
 			}
-		}
 
-		//ｐ１の使用したカードに攻撃カードがあった場合の処理
-		for (int i = 0; i < p1_card.length; i++)
-		{
-			//攻撃が通せるか判定するためのフラグリセット
-			flag = false;
-
-			//攻撃が通せるか判定するための変数リセット
-			count = 0;
-
-			//使ったカードがあるかどうか判定
-			if (p1_card[i][0] != -1)
+			//ｐ２が選んだおつまみがｐ１のお酒にマッチしているかどうか
+			else if (i == 1)
 			{
-				//攻撃カードかどうかの判定
-				if (0 <= p1_card[i][0] && p1_card[i][0] < 12)
+				for (int j = 3; j < p1_card[1].length; j++)
 				{
-					//p1_cardの対応IDの列を回すためのfor
-					for (int j = 3; j < p1_card[0].length; j++)
+					//マッチした場合
+					if (p2_card[i][0] == p1_card[0][j])
 					{
-						//対応IDがあるかどうかの判定
-						if (p1_card[i][j] != -1)
-						{
-							//p2_cardのIDの行を回すためのfor
-							for (int k = 0; k < p2_card.length; k++)
-							{
-								//p1_cardの使ったカードIDに対応しているIDがp2_cardにあるか判定
-								if (p1_card[i][j] == p2_card[k][0])
-								{
-									//ｐ１のカードが攻撃で、ｐ２の防御に防がれたとき
-									if (0 <= p1_card[i][0] && p1_card[i][0] < 12)
-									{
-										flag = true;
-									}
-								}
+						textmain[4][1] = (int) (p1_card[0][2] * 1.5);
+						textmain[6][0] = textmain[4][1];
+					}
 
-								//対応しているIDでなかった場合
-								else
-								{
-									//カウントをプラスする
-									count++;
-
-									//カウントが６回溜まっていて、ｐ２の使ったカードに対応IDがなかった場合
-									if (count == 6 && flag == false)
-									{
-										textmain[6][i] -= p1_card[i][2];//ｐ１が与えたダメージを配列に入れる
-										count = 0;//カウントリセット
-
-										System.out.println("ｐ１の攻撃が通ったよ！" + textmain[6][i] + "ダメージ");
-									}
-								}
-
-							}
-						}
+					//マッチしなかった場合
+					else
+					{
+						textmain[4][1] = 0;
+						textmain[6][0] = p1_card[0][2];
 					}
 				}
 			}
+
+			//３番目はー１で何も入っていない
+			else
+			{
+				textmain[4][3] = 0;
+				textmain[6][3] = 0;
+			}
 		}
 
-		//統合処理の結果、発生したダメージをｈｐから減らす
-		//ｐ１のｈｐを減らす
-		for (int i = 0; i < textmain[0].length; i++)
+		//統合処理の結果、発生した満足度を増やす
+		//ｐ１の満足度を増やす
+		textmain[1][1] += textmain[4][0];
+		//満足度が１００を超えたら、１００にする
+		if(textmain[1][1] >= 100)
 		{
-			textmain[1][1] -= textmain[4][i];
+			textmain[1][1] = 100;
 		}
-		//ｈｐが-１以下になった場合０にする
-		if(textmain[1][1] <= -1)
+
+		//ｐ２の満足度を増やす
+		textmain[1][2] += textmain[6][0];
+		//満足度が１００を超えたら、１００にする
+		if(textmain[1][2] >= 100)
 		{
-			textmain[1][1] = 0;
-		}
-		//ｐ２のｈｐを減らす
-		for (int i = 0; i < textmain[0].length; i++)
-		{
-			textmain[1][2] += textmain[6][i];
-		}
-		//ｈｐが-１以下になった場合０にする
-		if(textmain[1][2] <= -1)
-		{
-			textmain[1][2] = 0;
+			textmain[1][2] = 100;
 		}
 
 		textmain[2][1]++;//ｐ１の行動値を１増やす

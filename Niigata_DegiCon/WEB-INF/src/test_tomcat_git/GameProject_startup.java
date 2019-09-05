@@ -82,8 +82,8 @@ public class GameProject_startup extends GameProject_Main
 			}
 
 			textmain[0][0] = 0;//処理判定を０に戻す
-			textmain[1][1] = 100;//ｐ１のｈｐを初期化
-			textmain[1][2] = 100;//ｐ２のｈｐを初期化
+			textmain[1][1] = 0;//ｐ１のｈｐを初期化
+			textmain[1][2] = 0;//ｐ２のｈｐを初期化
 			textmain[2][1] = 1;//ｐ１の行動値を初期化
 			textmain[2][2] = 1;//ｐ２の行動値を初期化
 
