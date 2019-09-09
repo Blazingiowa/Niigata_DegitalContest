@@ -15,8 +15,8 @@ public class TaiouText extends CardText //対応するカードの情報をテ�
 
 		//file = new File("var/www/html/"+room+"/taiou.txt");//room_idを使用してファイルを作成
 		/*取得したデータをもとにテキストファイルに出力する*/
-		cardlist = new int[20][3];
-		line = new String[20];
+		cardlist = new int[16][3];
+		line = new String[16];
 
 		for(int i =0;i<line.length;i++)
 		{
