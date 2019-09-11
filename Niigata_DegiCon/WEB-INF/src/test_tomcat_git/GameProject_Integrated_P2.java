@@ -39,7 +39,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 			{
 				p1_cardinfo = DBC.reference(p1_card[i][0]);//p1の使ったカード情報をDBからもってくる
 
-				for (int j = 0; j < p1_cardinfo.length; j++)
+				for (int j = 0; j < 5; j++)
 				{
 					//ｐ１の情報を入れていく
 					w = p1_cardinfo[j];
@@ -49,7 +49,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		}
 
 		//ｐ２の使ったカードの情報をDBから持ってくる
-		for (int i = 0; i < p2_card.length; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			//使ったカードがあったら（つまり、－１でなければ）
 			if (p2_card[i][0] != -1)

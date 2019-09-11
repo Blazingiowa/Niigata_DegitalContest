@@ -39,7 +39,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 			{
 				p1_cardinfo = DBC.reference(p1_card[i][0]);//p1の使ったカード情報をDBからもってくる
 
-				for (int j = 0; j < p1_cardinfo.length; j++)
+				for (int j = 0; j < 5; j++)
 				{
 					//ｐ１の情報を入れていく
 					w = p1_cardinfo[j];
@@ -56,7 +56,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 			{
 				p2_cardinfo = DBC.reference(p2_card[i][0]);//p2の使ったカード情報をDBからもってくる
 
-				for (int j = 0; j < p2_cardinfo.length; j++)
+				for (int j = 0; j < 5; j++)
 				{
 					//ｐ２の情報を入れていく
 					w = p2_cardinfo[j];
