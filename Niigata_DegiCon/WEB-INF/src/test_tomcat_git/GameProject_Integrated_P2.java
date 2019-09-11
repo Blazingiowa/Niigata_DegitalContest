@@ -7,11 +7,11 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		System.out.println("ｐ２で入った時の統合処理");
 
 		//自分のテキストの情報をもってくる
-		for(int i = 0;i<textmain.length;i++)
+		for (int i = 0; i < textmain.length; i++)
 		{
 			//テキストの０行目から順番に持ってきて退避
 			textW = txR.read(playerinfo[1], playerinfo[2], i);
-			for(int j = 0;j<textmain[0].length;j++)
+			for (int j = 0; j < textmain[0].length; j++)
 			{
 				w = textW[j];//退避させた１次元配列をさらに１つずつ退避
 				textmain[i][j] = w;//textmainに格納
@@ -122,7 +122,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		//ｐ１の満足度を増やす
 		textmain[1][1] += textmain[4][0];
 		//満足度が１００を超えたら、１００にする
-		if(textmain[1][1] >= 100)
+		if (textmain[1][1] >= 100)
 		{
 			textmain[1][1] = 100;
 		}
@@ -130,7 +130,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		//ｐ２の満足度を増やす
 		textmain[1][2] += textmain[6][0];
 		//満足度が１００を超えたら、１００にする
-		if(textmain[1][2] >= 100)
+		if (textmain[1][2] >= 100)
 		{
 			textmain[1][2] = 100;
 		}
@@ -189,7 +189,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 				case 4:
 					for (int j = 0; j < textmain[1].length; j++)
 					{
-						w = textmain[6][j] * (-1);
+						w = textmain[6][j];
 						textW[j] = w;
 					}
 					break;
@@ -203,7 +203,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 				case 6:
 					for (int j = 0; j < textmain[1].length; j++)
 					{
-						w = textmain[4][j] * (-1);
+						w = textmain[4][j];
 						textW[j] = w;
 					}
 					break;
@@ -244,11 +244,11 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		}
 
 		//クールタイムの短縮処理
-		for(int i = 0;i<CT.length;i++)
+		for (int i = 0; i < CT.length; i++)
 		{
-			for(int j = 0;j<CT[0].length;j++)
+			for (int j = 0; j < CT[0].length; j++)
 			{
-				if(CT[i][j] > 0)
+				if (CT[i][j] > 0)
 				{
 					CT[i][j]--;
 				}
@@ -282,10 +282,10 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		}
 
 		//更新したクールタイムの情報をテキストに書き込む
-		for(int i = 0;i<CT.length;i++)
+		for (int i = 0; i < CT.length; i++)
 		{
 			//各プレイヤーのクールタイムの情報を１次元配列に退避させる
-			for(int j = 0;j<CT[0].length;j++)
+			for (int j = 0; j < CT[0].length; j++)
 			{
 				w = CT[i][j];
 				CTwrite[j] = w;
