@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class GameProject_Main
 {
 	//送られてきた使ったカードIDを昇順にソートし格納するための配列
-	int[]SortedCard;
+	int[] SortedCard;
 
 	//ルーム状況を入れるための配列
 	int[] player = new int[3];
@@ -29,10 +29,10 @@ public class GameProject_Main
 	boolean flag = false;
 
 	//クールタイムの情報を入れるための配列
-	int[][]CT = new int[2][16];
+	int[][] CT = new int[2][16];
 
 	//クールタイムの更新した情報をテキストに書き込む時に使う１次元配列
-	int[]CTwrite = new int[16];
+	int[] CTwrite = new int[16];
 
 	//DBクラスのインスタンス
 	DataBaseConnectRead DBC = new DataBaseConnectRead();
@@ -63,13 +63,18 @@ public class GameProject_Main
 		//ゲームのplayer2の統合処理クラス
 		GameProject_Integrated_P2 GPIP2 = new GameProject_Integrated_P2();
 
+		for (int i = 0; i < use.length; i++)
+		{
+			System.out.println("使用したカード:" + i + use[i]);
+		}
+
 		//textmainの内容を初期化
 		GPS.start(info);
 
 		System.out.println("ここから、ゲームスタート");
 
 		//使ったカードIDを昇順にソート
-		int[]SortedCard = sort(use);
+		int[] SortedCard = sort(use);
 
 		//テキストを読み込み、書き換え
 		GPRW.txtReadWrite(info, SortedCard);
@@ -102,15 +107,14 @@ public class GameProject_Main
 		}
 	}
 
-	int[] sort(int[]usecard)
+	int[] sort(int[] usecard)
 	{
 		int[] w = new int[usecard.length];
 		Arrays.sort(usecard);
-		for(int i=0,j=usecard.length-1;i<usecard.length;i++,j--)
+		for (int i = 0, j = usecard.length - 1; i < usecard.length; i++, j--)
 		{
 			w[i] = usecard[j];
 		}
-
 
 		return w;
 	}

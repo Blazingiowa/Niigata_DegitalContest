@@ -49,7 +49,7 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 		}
 
 		//ｐ２の使ったカードの情報をDBから持ってくる
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < p2_card.length; i++)
 		{
 			//使ったカードがあったら（つまり、－１でなければ）
 			if (p2_card[i][0] != -1)
