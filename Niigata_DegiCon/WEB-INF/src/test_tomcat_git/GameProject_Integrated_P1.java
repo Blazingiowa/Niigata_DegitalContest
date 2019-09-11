@@ -46,6 +46,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 					p1_card[i][j] = w;
 				}
 			}
+			System.out.println("p1の使用したカード："+p1_card[i][0]);
 		}
 
 		//ｐ２の使ったカードの情報をDBから持ってくる
@@ -63,6 +64,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 					p2_card[i][j] = w;
 				}
 			}
+			System.out.println("p2の使用したカード："+p1_card[i][0]);
 		}
 
 		//統合処理:計算
