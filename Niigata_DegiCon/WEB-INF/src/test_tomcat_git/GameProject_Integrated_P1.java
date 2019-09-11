@@ -46,7 +46,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 					p1_card[i][j] = w;
 				}
 			}
-			System.out.println("p1の使用したカード："+p1_card[i][0]);
+			System.out.println("p1の使用したカード：" + p1_card[i][0]);
 		}
 
 		//ｐ２の使ったカードの情報をDBから持ってくる
@@ -64,7 +64,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 					p2_card[i][j] = w;
 				}
 			}
-			System.out.println("p2の使用したカード："+p1_card[i][0]);
+			System.out.println("p2の使用したカード：" + p1_card[i][0]);
 		}
 
 		//統合処理:計算
@@ -75,19 +75,29 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 			{
 				for (int j = 3; j < p2_card[0].length; j++)
 				{
-					//マッチした場合
+					//マッチした場合はフラグをtrue
 					if (p1_card[i][0] == p2_card[1][j])
 					{
-						textmain[4][0] = (int) (p1_card[0][2] * 1.5);
-						textmain[6][1] = textmain[4][0];
+						flag = true;
 					}
 
-					//マッチしなかった場合
+					//マッチしなかった場合は何もしない
 					else
 					{
-						textmain[4][0] = p1_card[0][2];
-						textmain[6][1] = 0;
 					}
+				}
+
+				if (flag == true)
+				{
+					textmain[4][0] = (int) (p1_card[0][2] * 1.5);
+					textmain[6][1] = textmain[4][0];
+					flag = false;//フラグを元に戻す
+				}
+				else
+				{
+					textmain[4][0] = p1_card[0][2];
+					textmain[6][1] = 0;
+					flag = false;//フラグを元に戻す
 				}
 			}
 
@@ -96,19 +106,29 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 			{
 				for (int j = 3; j < p2_card[1].length; j++)
 				{
-					//マッチした場合
+					//マッチした場合はフラグをtrue
 					if (p1_card[i][0] == p2_card[0][j])
 					{
-						textmain[4][1] = (int) (p2_card[0][2] * 1.5);
-						textmain[6][0] = textmain[4][1];
+						flag = true;
 					}
 
-					//マッチしなかった場合
+					//マッチしなかった場合は何もしない
 					else
 					{
-						textmain[4][1] = 0;
-						textmain[6][0] = p2_card[0][2];
 					}
+				}
+
+				if (flag == true)
+				{
+					textmain[4][1] = (int) (p2_card[0][2] * 1.5);
+					textmain[6][0] = textmain[4][1];
+					flag = false;//フラグを元に戻す
+				}
+				else
+				{
+					textmain[4][1] = 0;
+					textmain[6][0] = p2_card[0][2];
+					flag = false;//フラグを元に戻す
 				}
 			}
 
@@ -125,7 +145,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 		//ｐ１の満足度を増やす
 		textmain[1][1] += textmain[4][0];
 		//満足度が１００を超えたら、１００にする
-		if(textmain[1][1] >= 100)
+		if (textmain[1][1] >= 100)
 		{
 			textmain[1][1] = 100;
 		}
@@ -133,7 +153,7 @@ public class GameProject_Integrated_P1 extends GameProject_Main
 		//ｐ２の満足度を増やす
 		textmain[1][2] += textmain[6][0];
 		//満足度が１００を超えたら、１００にする
-		if(textmain[1][2] >= 100)
+		if (textmain[1][2] >= 100)
 		{
 			textmain[1][2] = 100;
 		}

@@ -24,8 +24,7 @@ public class GameProject_Main
 	int w;//一時退避変数
 	int[][] textmain = new int[7][3];//避難させた内容を格納するための配列
 
-	//攻撃が通せるかどうか判定するための変数とフラグ
-	int count = 0;
+	//攻撃が通せるかどうか判定するためのフラグ
 	boolean flag = false;
 
 	//クールタイムの情報を入れるための配列
