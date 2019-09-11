@@ -113,8 +113,8 @@ public class GameProject_Integrated_P2 extends GameProject_Main
 			//３番目はー１で何も入っていない
 			else
 			{
-				textmain[4][3] = 0;
-				textmain[6][3] = 0;
+				textmain[4][2] = 0;
+				textmain[6][2] = 0;
 			}
 		}
 
